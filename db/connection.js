@@ -1,7 +1,8 @@
 const util = require("util");
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const ascii_art = require("ascii-art");
+// const ascii_art = require("ascii-art");
+const { connected } = require("process");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -10,19 +11,11 @@ const connection = mysql.createConnection({
     database: "employeesDB"
 });
 
-connection.connect();
+connection.connect((err) => {
+    if(err) throw err;
+    console.log("Connected as id "+ connection.threadId);
+});
 
 connection.query = util.promisify(connection.query);
-
-connection.query( "", function(err, res) {
-
-
-});
-
-connection.query("").then((res) => {
-
-}).catch(() => {
-
-});
 
 module.exports = connection;
