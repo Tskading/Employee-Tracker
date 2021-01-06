@@ -59,6 +59,7 @@ function viewDepartment() {
     db.getDepartment()
         .then((results) => {
             console.table(results);
+            askForAction();
         });
 };
 
@@ -66,6 +67,7 @@ function viewRoles() {
     db.getRoles()
         .then((results) => {
             console.table(results);
+            askForAction();
         });
 };
 
@@ -73,6 +75,7 @@ function viewEmployees() {
     db.getEmployees()
         .then((results) => {
             console.table(results);
+            askForAction();
         });
 };
 
@@ -108,6 +111,7 @@ function createRole() {
         ]).then(res => {
             console.log(res);
             db.insertRole(res);
+            askForAction();
         })
     });
 };
@@ -124,6 +128,7 @@ function createDepartment() {
         ]).then(res => {
             console.log(res);
             db.insertDepartment(res);
+            askForAction();
         })
     )       
 
@@ -160,6 +165,7 @@ function createEmployee() {
         ]).then(res => {
             console.log(res);
             db.insertEmployee(res);
+            askForAction();
         })
     })
 }
